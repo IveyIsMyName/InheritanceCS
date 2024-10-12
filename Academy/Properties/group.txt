@@ -1,0 +1,3 @@
+Academy.Student:	Pinkman Jessie 22 Chemistry WW_220 95 96
+Academy.Teacher:	White Walter 50 Chemistry 25
+Academy.Graduate:	Ilyukhin Ivan 33 Software Engineering PV_319 100 100 Telegram Bot
