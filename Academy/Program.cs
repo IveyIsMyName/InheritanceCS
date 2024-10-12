@@ -39,38 +39,12 @@ namespace Academy
 			new Student ("Vercetti", "Tommy", 30, "Theft", "Vice", 97, 98),
 			new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 20),
 			};
-			Print(group);
+			Streamer.Print(group);
+			Streamer.Save(group, "group.csv");
 
 			//Save(group, "group.txt");
 			//Load("group.txt");
 		}
-		static void Print(Human[] group)
-		{
-			foreach (Human human in group)
-			{
-				Console.WriteLine(human);
-			}
-            Console.WriteLine();
-		}
-		static void Save(Human[] group, string fileName)
-		{
-			StreamWriter sw = new StreamWriter(fileName);
-			foreach (Human human in group)
-			{
-				sw.WriteLine(human.ToString());
-			}
-			sw.Close();
-			Process.Start("notepad", fileName);
-		}
-		static void Load(string fileName)
-		{
-			StreamReader sr = new StreamReader(fileName);
-			while (!sr.EndOfStream)
-			{
-				string buffer = sr.ReadLine();
-				Console.WriteLine(buffer);
-			}
-			sr.Close();
-		}
+		
 	}
 }
