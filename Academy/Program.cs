@@ -35,16 +35,22 @@ namespace Academy
 			{
 			new Student ("Pinkman", "Jessie", 22, "Chemistry", "WW_220", 95, 96),
 			new Teacher("White", "Walter", 50, "Chemistry", 25),
-			new Graduate("Ilyukhin", "Ivan", 33, "Software Engineering", "PV_319", 100, 100, "Telegram Bot")
+			new Graduate("Ilyukhin", "Ivan", 33, "Software Engineering", "PV_319", 100, 100, "Telegram Bot"),
+			new Student ("Vercetti", "Tommy", 30, "Theft", "Vice", 97, 98),
+			new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 20),
 			};
+			Print(group);
+
+			//Save(group, "group.txt");
+			//Load("group.txt");
+		}
+		static void Print(Human[] group)
+		{
 			foreach (Human human in group)
 			{
 				Console.WriteLine(human);
 			}
-
-			//Save(group, "group.txt");
-			//Human.Save(group, "group.txt");
-			//Load("group.txt");
+            Console.WriteLine();
 		}
 		static void Save(Human[] group, string fileName)
 		{
@@ -62,7 +68,7 @@ namespace Academy
 			while (!sr.EndOfStream)
 			{
 				string buffer = sr.ReadLine();
-                Console.WriteLine(buffer);
+				Console.WriteLine(buffer);
 			}
 			sr.Close();
 		}
