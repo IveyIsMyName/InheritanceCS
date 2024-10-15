@@ -1,4 +1,5 @@
 ﻿//#define INHERITANCE_CHECK
+//#define SAVE_CHECK
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,21 +32,23 @@ namespace Academy
 			graduate.Print();
 			Console.WriteLine(graduate);
 #endif
+#if SAVE_CHECK
 			Human[] group = new Human[]
-			{
+				{
 			new Student ("Pinkman", "Jessie", 22, "Chemistry", "WW_220", 95, 96),
 			new Teacher("White", "Walter", 50, "Chemistry", 25),
 			new Graduate("Ilyukhin", "Ivan", 33, "Software Engineering", "PV_319", 100, 100, "Telegram Bot"),
 			new Student ("Vercetti", "Tommy", 30, "Theft", "Vice", 97, 98),
 			new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 20),
-			};
+				};
 			//Streamer.Print(group);
 			//Streamer.Save(group, "group.csv");
 
 			//Save(group, "group.txt");
-			//Load("group.txt");
-			Human[] arr = Streamer.LoadToArray("group.txt");
-			Streamer.Print(arr);
+			//Load("group.txt");  
+#endif
+			Human[] humanArr = Streamer.LoadToArray("group.txt");
+			Streamer.Print(humanArr);
 		}
 		
 	}

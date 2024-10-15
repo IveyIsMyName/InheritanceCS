@@ -50,7 +50,6 @@ namespace Academy
 			Rating = Convert.ToDouble(parts[6]);
 			Attendance = Convert.ToDouble(parts[7]);
 			return this;
-
 		}
 	}
 }

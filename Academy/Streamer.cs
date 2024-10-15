@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,17 @@ namespace Academy
 	//Single responsibility principle
 	internal class Streamer
 	{
+		internal static string SetDirectory()
+		{
+			string location = System.Reflection.Assembly.GetEntryAssembly().Location;
+			string path = System.IO.Path.GetDirectoryName(location);
+			Console.WriteLine(location);
+			Console.WriteLine(path);
+			Directory.SetCurrentDirectory($"{path}\\..\\..");
+			Console.WriteLine(Directory.GetCurrentDirectory());
+			Console.Write("\n------------------------------------------------------\n");
+			return Directory.GetCurrentDirectory();
+		}
 		internal static void Print(Human[] group)
 		{
 			foreach (Human human in group)
@@ -21,6 +33,7 @@ namespace Academy
 		}
 		internal static void Save(Human[] group, string fileName)
 		{
+			SetDirectory();
 			StreamWriter sw = new StreamWriter(fileName);
 			foreach (Human human in group)
 			{
@@ -31,6 +44,7 @@ namespace Academy
 		}
 		internal static void Load(string fileName)
 		{
+			SetDirectory();
 			StreamReader sr = new StreamReader(fileName);
 			while (!sr.EndOfStream)
 			{
@@ -41,32 +55,24 @@ namespace Academy
 		}
 		internal static Human[] LoadToArray(string fileName)
 		{
+			SetDirectory();
 			List<Human> list = new List<Human>();
 			StreamReader sr = new StreamReader(fileName);
 			while (!sr.EndOfStream)
 			{
 				string buffer = sr.ReadLine();
-
 				string[] parts = buffer.Split(',');
-				Human human = HumanFactory(parts[0]);
-				human.Init(parts);
-				list.Add(human);
+				//parts = parts.Where(s => s != "").ToArray() //удаляем пустые строки
+				//if(parts.Length == 1) continue;
+				//Human human = HumanFactory.Create(parts[0]);
+				//human.Init(parts);
+				//list.Add(human);
+				list.Add(HumanFactory.Create(parts[0]).Init(parts));
 			}
-				sr.Close();
+			sr.Close();
 			return list.ToArray();
 		}
-		internal static Human HumanFactory(string name)
-		{
-			Human human = null;
-			switch (name)
-			{
-				case "Human": human = new Human("", "", 0); break;
-				case "Teacher": human = new Teacher("", "", 0, "", 0); break;
-				case "Student": human = new Student("", "", 0, "", "", 0, 0); break;
-				case "Graduate": human = new Graduate("", "", 0, "", "", 0, 0, ""); break;
-			}
-			return human;
-		}
+		
 		//CSV - Comma Separated Values (Значение, разделенные запятой)
 
 	}
