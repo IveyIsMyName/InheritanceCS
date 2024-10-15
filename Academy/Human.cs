@@ -26,6 +26,13 @@ namespace Academy
 			Age = age;
 			Console.WriteLine($"HConstructor:{GetHashCode()}");
 		}
+		public Human(Human other)
+		{
+			this.LastName = other.LastName;
+			this.FirstName = other.FirstName;
+			this.Age = other.Age;
+			Console.WriteLine($"HCopyConstructor:{GetHashCode()}");
+		}
 		~Human()
 		{
 			Console.WriteLine($"HDestructor:{GetHashCode()}");
@@ -42,16 +49,12 @@ namespace Academy
 		{
 			return GetType().ToString().Split('.').Last() + $", {LastName}, {FirstName}, {Age}";
 		}
-
-		//public static void Save(Human[] group, string fileName)
-		//{
-		//	StreamWriter sw = new StreamWriter(fileName);
-		//	foreach (Human human in group)
-		//	{
-		//		sw.WriteLine(human.ToString());
-		//	}
-		//	sw.Close();
-		//	Process.Start("notepad", fileName);
-		//}
+		public virtual Human Init(string[] parts)
+		{
+			LastName = parts[1];
+			FirstName = parts[2];
+			Age = Convert.ToInt32(parts[3]);
+			return this;
+		}
 	}
 }

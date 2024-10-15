@@ -39,11 +39,13 @@ namespace Academy
 			new Student ("Vercetti", "Tommy", 30, "Theft", "Vice", 97, 98),
 			new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 20),
 			};
-			Streamer.Print(group);
-			Streamer.Save(group, "group.csv");
+			//Streamer.Print(group);
+			//Streamer.Save(group, "group.csv");
 
 			//Save(group, "group.txt");
 			//Load("group.txt");
+			Human[] arr = Streamer.LoadToArray("group.txt");
+			Streamer.Print(arr);
 		}
 		
 	}

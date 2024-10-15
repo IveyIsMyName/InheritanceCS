@@ -39,6 +39,34 @@ namespace Academy
 			}
 			sr.Close();
 		}
+		internal static Human[] LoadToArray(string fileName)
+		{
+			List<Human> list = new List<Human>();
+			StreamReader sr = new StreamReader(fileName);
+			while (!sr.EndOfStream)
+			{
+				string buffer = sr.ReadLine();
+
+				string[] parts = buffer.Split(',');
+				Human human = HumanFactory(parts[0]);
+				human.Init(parts);
+				list.Add(human);
+			}
+				sr.Close();
+			return list.ToArray();
+		}
+		internal static Human HumanFactory(string name)
+		{
+			Human human = null;
+			switch (name)
+			{
+				case "Human": human = new Human("", "", 0); break;
+				case "Teacher": human = new Teacher("", "", 0, "", 0); break;
+				case "Student": human = new Student("", "", 0, "", "", 0, 0); break;
+				case "Graduate": human = new Graduate("", "", 0, "", "", 0, 0, ""); break;
+			}
+			return human;
+		}
 		//CSV - Comma Separated Values (Значение, разделенные запятой)
 
 	}

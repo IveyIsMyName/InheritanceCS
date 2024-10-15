@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +39,13 @@ namespace Academy
 		public override string ToFileString()
 		{
 			return base.ToFileString() + $",{Speciality},{Experience}";
+		}
+		public override Human Init(string[] parts)
+		{
+			base.Init(parts);
+			Speciality = parts[4];
+			Experience = Convert.ToInt32(parts[5]);
+			return this;
 		}
 	}
 }
