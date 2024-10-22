@@ -22,14 +22,20 @@ namespace AbstractGeometry
 				);
 			PaintEventArgs e = new PaintEventArgs( graphics, window_rect );
 			
-			Rectangle rectangle = new Rectangle(90, 40, 400, 200, 3, System.Drawing.Color.Red);
+			Rectangle rectangle = new Rectangle(100, 40, 500, 200, 3, Color.Red);
 			rectangle.Info(e);
 
-			Square square = new Square (80, 500, 50, 3, System.Drawing.Color.Aquamarine);
+			Square square = new Square (80, 500, 50, 3, Color.Aquamarine);
 			square.Info(e);
 
-			Circle circle = new Circle(100, 600, 75, 3, Color.LightYellow);
+			Circle circle = new Circle(100, 650, 100, 3, Color.LightYellow);
 			circle.Info(e);
+
+			IsoscelesTriangle isoTriangle = new IsoscelesTriangle(100, 60, 650, 300, 3, Color.Blue);
+			isoTriangle.Info(e);
+
+			EquilateralTriangle eqTriangle = new EquilateralTriangle(100, 650, 15, 3, Color.BlueViolet);
+			eqTriangle.Info(e);
 		}
 		[DllImport("kernel32.dll")]
 		private static extern IntPtr GetConsoleWindow();

@@ -9,7 +9,7 @@ namespace AbstractGeometry
 {
 	internal class Square:Rectangle
 	{
-		public Square(double side, int start_x, int start_y, int line_width, Color color)
-			: base(side, side, start_x, start_y, line_width, color) { }
+		public Square(double side, int startX, int startY, int lineWidth, Color color)
+			: base(side, side, startX, startY, lineWidth, color) { }
 	}
 }
