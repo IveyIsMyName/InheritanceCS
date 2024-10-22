@@ -29,6 +29,7 @@ namespace AbstractGeometry
 		public double GetDiameter() => 2 * Radius;
 		public void DrawDiameter(PaintEventArgs e)
 		{
+			//int dx = (int)(Radius * (1 - 1 / Math.Sqrt(2)));
 			float centerX = (float)(StartX + Radius);
 			float centerY = (float)(StartY + Radius);
 			e.Graphics.DrawLine(new Pen(Color, 1), (float)(centerX - Radius), centerY, (float)(centerX + Radius), centerY);

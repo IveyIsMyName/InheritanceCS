@@ -28,14 +28,17 @@ namespace AbstractGeometry
 			Square square = new Square (80, 500, 50, 3, Color.Aquamarine);
 			square.Info(e);
 
-			Circle circle = new Circle(100, 650, 100, 3, Color.LightYellow);
+			Circle circle = new Circle(100, 625, 100, 3, Color.LightYellow);
 			circle.Info(e);
 
-			IsoscelesTriangle isoTriangle = new IsoscelesTriangle(100, 60, 650, 300, 3, Color.Blue);
+			IsoscelesTriangle isoTriangle = new IsoscelesTriangle(100, 60, 500, 250, 3, Color.Blue);
 			isoTriangle.Info(e);
 
-			EquilateralTriangle eqTriangle = new EquilateralTriangle(100, 650, 15, 3, Color.BlueViolet);
+			EquilateralTriangle eqTriangle = new EquilateralTriangle(100, 500, 350, 3, Color.BlueViolet);
 			eqTriangle.Info(e);
+
+			RightTriangle rTriangle = new RightTriangle(150, 80, 650, 370, 3, Color.DarkGoldenrod);
+			rTriangle.Info(e);
 		}
 		[DllImport("kernel32.dll")]
 		private static extern IntPtr GetConsoleWindow();
