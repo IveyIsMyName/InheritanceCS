@@ -39,6 +39,9 @@ namespace AbstractGeometry
 
 			RightTriangle rTriangle = new RightTriangle(150, 80, 650, 370, 3, Color.DarkGoldenrod);
 			rTriangle.Info(e);
+
+			LeftTriangle lTriangle = new LeftTriangle(150, 80, 805, 365, 3, Color.DarkGoldenrod);
+			lTriangle.Info(e);
 		}
 		[DllImport("kernel32.dll")]
 		private static extern IntPtr GetConsoleWindow();
